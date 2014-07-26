@@ -29,7 +29,7 @@ $dept = $dept_query[0];
 if($roll_no!='' && $roll_no>9){
 	$tables = order_tables($roll_no);
 }else{
-	$tables = array("y6", "y6_2", "y7", "y7_2", "y8", "y8_2", "y9", "y9_2", "y10", "y10_2", "y11", "y11_2", "y12", "y12_2", "y13", "y13_2");
+	$tables = array("y6", "y6_2", "y7", "y7_2", "y8", "y8_2", "y9", "y9_2", "y10", "y10_2", "y11", "y11_2", "y12", "y12_2", "y13", "y13_2", "y14", "y14_2");
 }
 
 foreach($tables as $table_name){

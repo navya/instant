@@ -123,7 +123,7 @@ function reverse_letters($str){
 
 function order_tables($rollno_input=11){
   $min_yr = 6;
-  $max_yr = 13;
+  $max_yr = 14;
   $tables=array();
   //echo $rollno_input;
   if(substr($rollno_input,0,2)>20){
