@@ -1,0 +1,7 @@
+CACHE MANIFEST
+
+CACHE:
+index_offline.php
+
+FALLBACK:
+*.jpg  images/blank.jpg

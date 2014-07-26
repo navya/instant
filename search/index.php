@@ -1,0 +1,205 @@
+<?php include("functions/functions.php");?>
+<?php $visitors_count = visitor(); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Search Instantly</title>
+<link href="style.css" type="text/css" rel="stylesheet" />
+<script src="iitk_staff/js/jquery-1.7.min.js" type="text/javascript"></script>
+<script src="js/request.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+	$("#developerSubmit").click(function(){
+		initAll
+	});
+	tiler(tile);
+	$("#tile_input").click(function(){
+		tile = 1;
+		tiler(tile);
+	});
+	$("#normal_input").click(function(){
+		tile = 0;
+		tiler(tile);
+	});
+});
+
+function tiler(tile){
+	$(".active").removeClass("active");
+	if(tile==1){
+		$(".container").addClass("tile");
+		$("#tile_input").addClass("active");
+	}else{
+		$(".container").removeClass("tile");
+		$("#normal_input").addClass("active");
+	}
+}
+</script>
+<script>
+function fshow(){
+	$("#feedback").fadeIn(400);
+}
+
+function isOnline() {
+     return navigator.onLine;
+}
+ 
+
+function fsend(){
+	var feedback = $("#feedbackr").val();
+	if(feedback!=''){
+			$("#comment").fadeOut(400,function(){
+			$.get("send.php",{f:feedback});
+			//alert("<b>Thank you</b>");
+			$("#thanks").fadeIn();
+			$("#comment").fadeIn(400,function(){
+				setTimeout(1500);
+				$("#feedback").fadeOut(400);
+				$("#feedbackr").val("");
+				$("#thanks").fadeOut();
+			});
+		});
+	}
+}
+
+function fclose(){
+	$("#feedback").fadeOut("slow");
+}
+</script>
+<link rel="shortcut icon" href='favicon.ico' /> 
+</head>
+<body>
+<div id='hidden' style='display:none'></div>
+<div align="center"><h2><a href='./' style='text-decoration:none;' class='active' >Student Search</a> <a href='./iitk_staff'>Faculty/Employee Search</a> <a href="faq.php">FAQs</a> </h2></div>
+<div id="container">
+<form id="form" action="#index.php" method="post" onkeyup="initAll()" >
+<label for="roll_no">Roll No/Year</label><input type="text" name="roll_no" value="" autocomplete="off" onkeyup="setRoll(this.value)" autofocus="autofocus" />
+<label for="name">Name</label><input type="text" name="name" id="name" value="" autocomplete="off" onkeyup="setName(this.value)" onclick='this.select()'/>
+<div id="name_suggest"></div>
+<label for="login">Login</label><input type="text" name="email" value="" autocomplete="off" onkeyup="setLogin(this.value)"/>
+<label for="dept">Department</label>
+<select name="dept" onchange="setDept(this.value)">
+<option selected value="all">ALL</option>
+<optgroup label="Engineering">
+<option value="Aerospace Engineering">Aerospace Engineering</option>
+<option value="Bio Sciences and Bioengineering">Bio Sciences &amp; Bioengineering</option>
+<option value="Chemical Engineering">Chemical Engineering</option>
+<option value="Civil Engineering">Civil Engineering</option>
+<option value="Computer Sci. and Engineering">Computer Sci. &amp; Engineering</option>
+<option value="Electrical Engineering">Electrical Engineering</option>
+<option value="Environmental Engg">Environmental Engineering</option>
+<option value="Ind. &amp; Management">Industrial &amp; Management Engg.</option>
+<option value="Mat. and Met.engg.">Materials &amp; Metallurgical Engg.</option>
+<option value="Material">Material Science &amp; Engg.</option>
+<option value="Mechanical Engineering">Mechanical Engineering</option>
+</optgroup>
+<optgroup label="Humanities">
+<option value="economics">Humanities &amp; Social Sciences</option>
+</optgroup>
+<optgroup label="Science">
+<option value="chemistry">Chemistry</option>
+<option value="Mathematics and Statistics">Mathematics & Statistics</option>
+<option value="physics">Physics</option>
+<option value="Statistics">Statistics</option>
+</optgroup>
+</select>
+<label for="program">Program</label>
+<select name="program" onchange="setProgram(this.value)">
+<option SELECTED value="all">ALL</option>
+		<option value="btech">B.Tech.</option>
+		<option value="mtech">M.Tech</option>
+		<option value="mt(dual)">Dual</option>
+		<option value="msc(2 yr)">M.SC.</option>
+		<option value="msc(int)">M.SC. Integrated</option>
+		<option value="mba">MBA</option>
+		<option value="mdes">M.Des.</option>
+		<option value="phd">Ph.D.</option>
+		<option value="diit">Diit</option>
+</select>
+<label for="course">Course</label>
+<select name="course" onchange="setCourse(this.value)">
+<option value=''>Select A Course</option>
+<?php include("course_list_2013-2014_2.php"); ?>
+</select>
+<label for="hostel" style=" margin: 10px 10px 0;">Hostel</label>
+<select name="hostel" onchange="setHostel(this.value)">
+<option SELECTED value="">ALL</option>
+		<option value="hall1">hall 1</option>
+		<option value="hall2">hall 2</option>
+		<option value="hall3">hall 3</option>
+		<option value="hall4">hall 4</option>
+		<option value="hall5">hall 5</option>
+		<option value="hall6">hall 6 (GH)</option>
+		<option value="hall7">hall 7</option>
+		<option value="hall8">hall 8</option>
+		<option value="hall9">hall 9</option>
+		<option value="hallx">hall 10</option>
+		<option value="aces">ACES</option>
+		<option value="gh">GH</option>
+</select>
+<label for="login">Hometown</label><input type="text" name="city" value="" autocomplete="off" onkeyup="setCity(this.value)" />
+<label for="bg">Blood Group</label>
+<select name="bg" onchange="setBG(this.value)">
+<option SELECTED value="">ALL</option>
+		<option value="a%2B">A+</option>
+		<option value="b%2B">B+</option>
+		<option value="ab%2B">AB+</option>
+		<option value="o%2B">O+</option>
+		<option value="a%2D">A-</option>
+		<option value="b%2D">B-</option>
+		<option value="ab%2D">AB-</option>
+		<option value="o%2D">O-</option>
+</select>
+<label for="gender"></label>
+<input type="radio" name="gender" value="both" onchange="setGender(this.value)" checked="checked"/>Both
+<input type="radio" name="gender" value="M" onchange="setGender(this.value)" />Male
+<input type="radio" name="gender" value="F" onchange="setGender(this.value)" />Female
+
+<a href='#' id='developerSubmit' onclick='initAll()' ><font color='#333'>Submit</font></a></button>
+</form>
+<p style="margin-left:20px;"><?php echo $visitors_count. " visits since Feb 26,2011 6:00AM "; ?> (<i>Last Update: Feb 26, 2012 [1 Year completion].</i>) <font color='#12C'>Use No-proxy</font></p>
+<!--<button style="float:right;margin-right:90px;margin-top:-35px;" id="fshow" onclick="fshow()">Feedback/Suggestion</button>-->
+<button style="float:right;margin-right:90px;margin-top:-35px;padding:3px 0;"><span id="tile_input">Tile Mode</span><span id="normal_input">Normal Mode</span></button>
+<!--
+<div style="float:right">
+<label for="order">Sort By: </label>
+<select name="order" onchange="setOrder(this.value)">
+<option value='rollno'>Roll No</option>
+<option value='rollno'>Name</option>
+<option value='rollno'>Gender</option>
+</div>-->
+<div id="results" name='results'>
+<p style='position:absolute;right:-90px;top:280px'><a href="javascript:void(0);" onclick='popupWin("https://facebook.com/sharer.php?u=<?php echo urlencode('http://search.junta.iitk.ac.in/instant/search'); ?>","700","400")'><img src='smile.png' style='width:64px;height:64px;border:none;box-shadow:none' title='5K visits in year'/></a></p>
+<div class="qA">
+	<h3>Instant Search Version 2.0</h3>
+	<h4>New Features</h4>
+	<ol>
+		<li>Exam Scheduler (sorted with venue) when you move your mouse the icon after Roll No</li>
+		<li>Direct link for name/email search on Facebook</li>
+		<li>Hometown on Google Map</li>
+		<li>From CNB to Hometown train enquiry link</li>
+		<li>Name suggestion if name does not have any match</li>
+	</ol>
+	<!--
+	<h4>What Next...</h4>
+	<ol>
+		<li>Better Suggestions of Name based on different inputs</li>
+		<li>Offline Version (After 12:00 in night and even if no-connection)</li>
+		<li>Facebook like loading on scroll down. (Chrome crashes sometimes for large amount of results)</li>
+	</ol>
+	-->
+	<h4>Please give feedback/complaints/suggestions about speed/look/other-features based on your experience.</h4>
+	<p>If you have mess-bill excelsheet of your hostel, you can mail it to <a href='mailto:agrawals@iitk.ac.in'>agrawals@iitk.ac.in</a>. Refresh page only if it is needed.</p>
+</div>
+</div>
+</div>
+<div id="footer">
+<p>&copy;search.junta.iitk.ac.in, 2010</p>
+</div>
+<div id="feedback" style="display:none;background:#FFF;position:fixed;left:50%;top:50%;width:500px;height:280px;margin-top:-140px;margin-left:-250px;border:7px solid rgba(82,82,82,0.7)">
+	<div style="height:30px;background:#abcf87;padding:5px 10px;color: white;font-size: 22px;font-weight: bold;font-family: Arial;"><strong>Feedback</strong></div>
+	<div id="comment" style="height:180px;padding:5px 10px"><textarea style='width: 470px;height: 170px;resize:none' id="feedbackr" onclick="this.innerHTML=''">Please give a proper feedback.</textarea></div>
+	<div style="height:40px;padding:5px 10px;background: #ABCF87;"><p style='display:none;color:#FFF;width:140px;float:left;margin-top: 10px;margin-left: 10px;font-weight: bold;font-family: Arial;' id='thanks'>Thank you</p><button style="float:right" id="fclose" onclick="fclose()">Close</button><button style="float:right" id="fsend" onclick="fsend()">Send</button></div>
+</div>
+</body>
+</html>

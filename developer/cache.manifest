@@ -1,0 +1,14 @@
+CACHE MANIFEST
+
+CACHE:
+index_offline.php
+style.css
+js/request.js
+iitk_staff/js/jquery-1.7.min.js
+smile.png
+images/bg.jpg
+images/select.png
+images/download.png
+
+FALLBACK:
+*.jpg  images/blank.jpg

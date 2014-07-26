@@ -1,0 +1,62 @@
+13100	phd	humanities & soc. sciences
+13101001	mtech	aerospace engg.
+13101061	phd	aerospace engg.
+13102001	mtech	chemical engg.
+13102062	phd	chemical engg.
+13103003	mtech	civil engg.
+13103165	phd	civil engg.
+13104006	mtech	electrical engg.
+13104176	phd	electrical engg.
+13105007	mtech	mechanical engg.
+13105174	phd	mechanical engg.
+13106010	mtech	material science and engg.
+13106070	phd	material science and engg.
+13107063	phd	chemistry
+13108067	phd	mathematics
+13109063	phd	physics
+13111003	mtech	computer sci. and engg.
+13111164	phd	computer sci. and engg.
+13112005	mtech	materials science programme
+13112063	phd	materials science programme
+13114004	mtech	ind. & management engg.
+13114062	phd	ind. & management engg.
+13115004	mtech	nuc. engg.& tech prog.
+13115064	phd	nuc. engg.& tech prog.
+13116008	mtech	laser technology
+13117011	mtech	environmental engg. & mgmt
+13118006	mtech	biol.sci. and bio.engg.
+13118063	phd	biol.sci. and bio.engg.
+13119001	mdes	master of design
+13119065	phd	master of design
+13125008	mba	ind. & management engg.
+13126005	pgpex-vlm	ind. & management engg.
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

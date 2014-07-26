@@ -1,0 +1,28 @@
+A
+{
+    COLOR: #191970;
+    FONT-WEIGHT: bolder;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: #ffa500
+}
+BODY
+{
+    BACKGROUND-COLOR: #ffffdf;
+    COLOR: #b22222;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: x-small
+}
+P
+{
+    BACKGROUND-COLOR: #ffffdf;
+    COLOR: #b22222;
+    FONT-FAMILY: Verdana
+}
+
+
+
+yellow   #ffffcc
+pink     #fdf5e6

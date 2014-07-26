@@ -1,0 +1,220 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type"
+			CONTENT="text/html; charset=WINDOWS-1252">
+
+		<META NAME="GENERATOR" CONTENT="Oracle JDeveloper">
+		<TITLE>Search -IITK</TITLE>
+		<LINK rel="Stylesheet" type="text/css" href="oasback.css">
+		<script language="JavaScript" type="text/javascript">
+
+function frmsbm()
+{
+	var x;
+	x = 0;
+	if(IsEmptyString(document.srchfrm.numtxt.value))
+	{
+		alert("Please enter Pfno/RollNo to search");
+		document.srchfrm.numtxt.focus();
+		x=x+1;
+		return false;
+	}
+  if(x==0)
+  {
+    document.srchfrm.method = "post";
+		document.srchfrm.action= "IITk_SrchRes.jsp?sbm=Y";
+		document.srchfrm.submit();
+	}
+	return true;
+}
+
+
+function IsEmptyString(str)
+{
+	nLen = str.length;
+	for(i=0; i<nLen; ++i)
+	{
+		if(str.charAt(i) != " ")
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+function backfn()
+{
+if (document.srchfrm.bk.value=="Y")
+{
+ document.srchfrm.method="post";
+ document.srchfrm.action="IITK_Srch.jsp?typ=stud";
+ document.srchfrm.submit();
+}
+else
+window.history.go(-1);
+}
+
+</script>
+	</HEAD>
+
+
+	<body bgcolor="lightsteelblue" text="#000000" leftmargin="20"
+		topmargin="0" marginwidth="0" marginheight="0"
+		onload="document.srchfrm.numtxt.focus();">
+		<br>
+		
+		<div align="center" class="DivAlertMessage">
+			Sorry No data found !
+		</div>
+		
+		<form name="srchfrm" method="get" onsubmit="frmsbm();" action="">
+			<input type="hidden" name="typ" value="stud">
+			<input type="hidden" name="bk" value="">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				align="center">
+				<tr>
+					<td align="center" valign="top">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td align="left" valign="top">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<img src="images/transparent.gif" width="1" height="10"
+													alt="">
+											</td>
+										</tr>
+										<tr></tr>
+										<tr>
+											<td>
+												<table border="0" cellspacing="0" cellpadding="2">
+													<tr class="TableContent">
+														
+														</td>
+														<td height="20">
+															<b>Enter Student RollNo:</b>
+															
+														</td>
+														<td class="menu1" height="20" nowrap="nowrap">
+															<input type="text" size="15" name="numtxt">
+															&nbsp;&nbsp;&nbsp;
+															<input class="submit_button" type="button" name="sbmbtn"
+																value="Submit" onclick="frmsbm();" title="NEW">
+
+														</td>
+													</tr>
+													<tr>
+														<td height="20"></td>
+													</tr>
+												</table>
+
+												
+												<BR>
+												<div align="center">
+													<center>
+
+														<table border="0" cellpadding="2" cellspacing="2"
+															width="100%">
+															<tr>
+																
+																<td align="right" valign="top" width="25%">
+																	
+																	<img src="http://oa.cc.iitk.ac.in:8181/Oa/Jsp/Photo/14577_0.jpg" width="130" height="130" alt="">
+																	
+																</td>
+																<td class="TableContent" valign="top" width="55%"
+																	nowrap="nowrap">
+																	
+																	<b>Roll No: </b>
+																	14577
+																	<br>
+																	<br>
+																	<p>
+																		<b>Name: </b>
+																		
+																	</p>
+																	<p>
+																		<b>Program: </b>
+																		
+																	</p>
+																	<p>
+																		<b>Department: </b>
+																		
+																	</p>
+																	<P>
+																		<b>Hostel Info: </b>
+																		
+																		<br>
+																	</P>
+																	
+																	<P>
+																		<b> E-Mail: </b><a href="mailto:">
+																		</a>
+																	</P>
+																	
+																	<P>
+																		<b> Blood Group:</b>
+																		
+																		<!--<b> Category:</b><br></P>-->
+																	</P>
+																	<P>
+																		<b> Gender:</b>
+																		
+																		<b> CountryOfOrigin:</b>
+																		
+																		<br>
+																	</P>
+																	<!--<p><b>Local Address :</b><br><br>
+		Phone no:<br>Mobile no:</P>
+		<p><b>Permanent Address :</b><br><br>
+  		Phone no:<br>Mobile no:</P>
+                <p><a href="Stff_Addr.jsp?typ=stud&pfno=14577">Address</a></p>-->
+																	
+																</td>
+															</tr>
+														</table>
+														<font></font>
+													</center>
+												</div>
+											</td>
+											
+											<td></td>
+										</tr>
+									</table>
+									<br>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+			</table>
+			<Center>
+				<br>
+				<br>
+				<br>
+				<table border="0" cellspacing="0" cellpadding="2">
+					<tr>
+						<td colspan="10">
+							<input class="submit_button" type="button" name="sbmbtn1"
+								value="Back" onclick="backfn();">
+
+						</td>
+					</tr>
+				</table>
+			</Center>
+		</form>
+	</body>
+</HTML>
